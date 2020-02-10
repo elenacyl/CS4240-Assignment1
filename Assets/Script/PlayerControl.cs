@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -33,6 +34,13 @@ public class PlayerControl : MonoBehaviour
         {
             // set object as invisible once collide
             other.gameObject.SetActive(false);
+
+            // increase ball size after collecting each pickup
+            rb.transform.localScale += new Vector3(0.3f,0.3f,0.3f);
+        }
+
+        if (other.gameObject.CompareTag("FinalPickup")) {
+             SceneManager.LoadScene("Game Over");
         }
     }
 }
