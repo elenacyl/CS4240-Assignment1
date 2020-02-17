@@ -21,10 +21,11 @@ public class PlayerControl : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        // Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         // add a force vector to a Rigidbody
-        rb.AddForce(movement * speed);
+        // rb.AddForce(movement * speed);
+        rb.velocity = new Vector3(moveHorizontal*speed, 0.0f, moveVertical*speed);
     }
 
     // default function to detect object collisions
